@@ -1,11 +1,12 @@
-import './App.css';
+import headerLogo from './images/header-logo.svg';
 
 function App() {
   return (
     <div className="App">
       <div className="page">
+        <div className="page__container">
       <header className="header">
-        <img alt="Логотип Mesto Russia" className="header__logo" src="<%=require('../src/images/header-logo.svg')%>"/>
+        <img alt="Логотип Mesto Russia" className="header__logo" src={headerLogo}/>
       </header>
       <main className="content">
         <section className="profile">
@@ -98,6 +99,7 @@ function App() {
           <button aria-label="Закрыть" className="popup__button-close" id="popup-close-delete-card" type="button"></button>
         </div>
       </div>
+        </div>
       </div>
     </div>
   );
