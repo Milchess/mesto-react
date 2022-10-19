@@ -1,17 +1,17 @@
-import headerLogo from './images/header-logo.svg';
+import React from 'react';
+import Header from './Header';
 
 function App() {
   return (
     <div className="App">
       <div className="page">
         <div className="page__container">
-      <header className="header">
-        <img alt="Логотип Mesto Russia" className="header__logo" src={headerLogo}/>
-      </header>
+      <>
+          <Header />
       <main className="content">
         <section className="profile">
           <button className="profile__avatar-button">
-            <img alt="аватар пользователя" className="profile__avatar" src="#"/>
+            <img alt="аватар пользователя" className="profile__avatar" src="src/components/App#"/>
           </button>
           <div className="profile__info">
             <h1 className="profile__user-name">Ваше имя</h1>
@@ -26,7 +26,7 @@ function App() {
               <li className="grid-card">
                 <article className="grid-card__container">
                   <button aria-label="Удалить" className="grid-card__delete" type="button"></button>
-                  <img alt="Картинка" className="grid-card__image" src="#"/>
+                  <img alt="Картинка" className="grid-card__image" src="src/components/App#"/>
                   <div className="grid-card__item">
                     <h2 className="grid-card__title">Подпись к картинке</h2>
                     <div>
@@ -75,7 +75,7 @@ function App() {
       <div className="popup popup-card" id="popup-card-image">
         <figure className="popup-card__container">
           <button aria-label="Закрыть" className="popup__button-close" id="popup-close-card__image_big" type="button"></button>
-          <img alt="Картинка" className="popup-card__image" src="#"/>
+          <img alt="Картинка" className="popup-card__image" src="src/components/App#"/>
           <figcaption className="popup-card__title">Подпись к картинке</figcaption>
         </figure>
       </div>
@@ -99,6 +99,7 @@ function App() {
           <button aria-label="Закрыть" className="popup__button-close" id="popup-close-delete-card" type="button"></button>
         </div>
       </div>
+      </>
         </div>
       </div>
     </div>
