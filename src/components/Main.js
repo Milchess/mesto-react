@@ -1,5 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 
 function Main() {
     return (
@@ -34,51 +35,46 @@ function Main() {
                     </template>
                 </ul>
             </section>
+                <>
+                <PopupWithForm
+                    name="profile"
+                    title="Редактировать профиль"
+                    buttonText="Сохранить">
+                    <input className="popup__user popup__user_type_name" maxLength="40" minLength="2" name="name" placeholder="Имя" required type="text"/>
+                    <span className="popup__error name-error"></span>
+                    <input className="popup__user popup__user_type_vocation" maxLength="200" minLength="2" name="about" placeholder="Род деятельности"
+                           required
+                           type="text"/>
+                    <span className="popup__error about-error"></span>
+                </PopupWithForm>
 
-            <PopupWithForm
-                name="profile"
-                title="Редактировать профиль"
+                <PopupWithForm
+                    name="card"
+                    title="Новое место"
+                    buttonText="Создать">
+                    <input className="popup__user popup__user_type_denomination" maxLength="30" minLength="2" name="name" placeholder="Название" required
+                           type="text"/>
+                    <span className="popup__error name-error"></span>
+                    <input className="popup__user popup__user_type_link-image" name="link" placeholder="Ссылка на картинку" required type="url"/>
+                    <span className="popup__error link-error"></span>
+                </PopupWithForm>
+
+                <PopupWithForm
+                name="avatar"
+                title="Обновить аватар"
                 buttonText="Сохранить">
-                <input className="popup__user popup__user_type_name" maxLength="40" minLength="2" name="name" placeholder="Имя" required type="text"/>
-                <span className="popup__error name-error"></span>
-                <input className="popup__user popup__user_type_vocation" maxLength="200" minLength="2" name="about" placeholder="Род деятельности"
-                       required
-                       type="text"/>
-                <span className="popup__error about-error"></span>
-            </PopupWithForm>
+                    <input className="popup__user popup__user_type_avatar" name="avatar" placeholder="Ссылка на картинку" required type="url"/>
+                    <span className="popup__error avatar-error"></span>
+                </PopupWithForm>
 
-            <PopupWithForm
-                name="card"
-                title="Новое место"
-                buttonText="Создать">
-                <input className="popup__user popup__user_type_denomination" maxLength="30" minLength="2" name="name" placeholder="Название" required
-                       type="text"/>
-                <span className="popup__error name-error"></span>
-                <input className="popup__user popup__user_type_link-image" name="link" placeholder="Ссылка на картинку" required type="url"/>
-                <span className="popup__error link-error"></span>
-            </PopupWithForm>
+                <PopupWithForm
+                name="delete_card"
+                title="Вы уверены?"
+                buttonText="Да">
+                </PopupWithForm>
 
-            <PopupWithForm
-            name="avatar"
-            title="Обновить аватар"
-            buttonText="Сохранить">
-                <input className="popup__user popup__user_type_avatar" name="avatar" placeholder="Ссылка на картинку" required type="url"/>
-                <span className="popup__error avatar-error"></span>
-            </PopupWithForm>
-
-            <PopupWithForm
-            name="delete_card"
-            title="Вы уверены?"
-            buttonText="Да">
-            </PopupWithForm>
-
-            <div className="popup popup-card" id="popup-card-image">
-                <figure className="popup-card__container">
-                    <button aria-label="Закрыть" className="popup__button-close" id="popup-close-card__image_big" type="button"></button>
-                    <img alt="Картинка" className="popup-card__image" src="src/components/App#"/>
-                    <figcaption className="popup-card__title">Подпись к картинке</figcaption>
-                </figure>
-            </div>
+                <ImagePopup />
+            </>
         </div>
     )
 }

@@ -17,6 +17,3 @@ function PopupWithForm(props) {
 
 export default PopupWithForm;
 
-
-/// card, avatar, delete_card, profile
-
