@@ -8,19 +8,17 @@ function Main(props) {
     const [userAvatar, SetUserAvatar] = React.useState('');
     const [cards, SetCards] = React.useState([]);
 
-    api.getUserInformation()
-        .then((UserData) => {
-            setUserName(UserData.name);
-            SetUserDescription(UserData.about);
-            SetUserAvatar(UserData.avatar);
-        })
-        .catch(err => console.log(`Ошибка.....: ${err}`))
+    React.useEffect(() => {
+        Promise.all([api.getUserInformation(), api.getInitialCards()])
+            .then(([userData, cardsData]) => {
+                setUserName(userData.name);
+                SetUserDescription(userData.about);
+                SetUserAvatar(userData.avatar);
 
-    api.getInitialCards()
-        .then((cardsData) => {
-            SetCards(cardsData);
-        })
-        .catch(err => console.log(`Ошибка.....: ${err}`))
+                SetCards(cardsData);
+            })
+            .catch(err => {console.log(err)});
+    }, [])
 
     return (
         <div className="content">
@@ -38,7 +36,7 @@ function Main(props) {
             <section className="elements">
                 <ul className="grid-cards">
                     {cards.map((item, id) => {
-                        return <Card card={item} key={id} />
+                        return <Card card={item} key={id} onCardClick={props.onCardClick}/>
                     })
                     }
                 </ul>

@@ -1,8 +1,12 @@
 import React from "react";
 
 function Card(props) {
+    function handleClick() {
+        props.onCardClick(props.card);
+    }
+
     return (
-        <li className="grid-card">
+        <li className="grid-card" onClick={handleClick}>
             <article className="grid-card__container">
                 <button aria-label="Удалить" className="grid-card__delete" type="button"></button>
                 <img alt={props.card.name} className="grid-card__image" src={props.card.link}/>
