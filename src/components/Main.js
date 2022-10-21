@@ -1,16 +1,24 @@
 import React from "react";
 import api from "../utils/api";
+import Card from "./Card";
 
 function Main(props) {
     const [userName, setUserName] = React.useState('');
     const [userDescription, SetUserDescription] = React.useState('');
     const [userAvatar, SetUserAvatar] = React.useState('');
+    const [cards, SetCards] = React.useState([]);
 
     api.getUserInformation()
         .then((UserData) => {
             setUserName(UserData.name);
             SetUserDescription(UserData.about);
             SetUserAvatar(UserData.avatar);
+        })
+        .catch(err => console.log(`Ошибка.....: ${err}`))
+
+    api.getInitialCards()
+        .then((cardsData) => {
+            SetCards(cardsData);
         })
         .catch(err => console.log(`Ошибка.....: ${err}`))
 
@@ -29,21 +37,10 @@ function Main(props) {
             </section>
             <section className="elements">
                 <ul className="grid-cards">
-                    <template id="grid-card-template">
-                        <li className="grid-card">
-                            <article className="grid-card__container">
-                                <button aria-label="Удалить" className="grid-card__delete" type="button"></button>
-                                <img alt="Картинка" className="grid-card__image" src="src/components/App#"/>
-                                <div className="grid-card__item">
-                                    <h2 className="grid-card__title">Подпись к картинке</h2>
-                                    <div>
-                                        <button aria-label="Лайк" className="grid-card__like" type="button"></button>
-                                        <p className="grid-card__like-quantity"></p>
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                    </template>
+                    {cards.map((item, id) => {
+                        return <Card card={item} key={id} />
+                    })
+                    }
                 </ul>
             </section>
         </div>
