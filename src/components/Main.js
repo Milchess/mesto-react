@@ -17,7 +17,9 @@ function Main(props) {
 
                 SetCards(cardsData);
             })
-            .catch(err => {console.log(err)});
+            .catch(err => {
+                console.log(`Ошибка.....: ${err}`)
+            });
     }, [])
 
     return (
@@ -28,7 +30,8 @@ function Main(props) {
                 </button>
                 <div className="profile__info">
                     <h1 className="profile__user-name">{userName}</h1>
-                    <button aria-label="Редактировать" className="profile__edit-button" id="edit-button" type="button" onClick={props.onEditProfile}></button>
+                    <button aria-label="Редактировать" className="profile__edit-button" id="edit-button" type="button"
+                            onClick={props.onEditProfile}></button>
                     <p className="profile__user-vocation">{userDescription}</p>
                 </div>
                 <button aria-label="Добавить" className="profile__add-button" id="add-button" type="button" onClick={props.onAddPlace}></button>
@@ -37,7 +40,7 @@ function Main(props) {
                 <ul className="grid-cards">
                     {cards.map((item, id) => {
                         return <Card card={item} key={id} onCardClick={props.onCardClick}/>
-                    })
+                        })
                     }
                 </ul>
             </section>
