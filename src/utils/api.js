@@ -17,9 +17,6 @@ class Api extends React.Component {
             headers: this._headers,
         })
             .then((res) => this._getResponseData(res))
-            .catch((err) => {
-                console.log(err);
-            });
     }
 
     // методы на будущий спринт
@@ -30,9 +27,6 @@ class Api extends React.Component {
     //         body: JSON.stringify(model)
     //     })
     //         .then((res) => this._getResponseData(res))
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
     // }
     //
     // _patch(link, model) {
@@ -42,9 +36,6 @@ class Api extends React.Component {
     //         body: JSON.stringify(model)
     //     })
     //         .then((res) => this._getResponseData(res))
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
     // }
     //
     // _put(link) {
@@ -53,9 +44,6 @@ class Api extends React.Component {
     //         headers: this._headers,
     //     })
     //         .then((res) => this._getResponseData(res))
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
     // }
     //
     // _delete(link) {
@@ -64,9 +52,6 @@ class Api extends React.Component {
     //         headers: this._headers,
     //     })
     //         .then((res) => this._getResponseData(res))
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
     // }
 
     _getResponseData(res) {
