@@ -80,16 +80,16 @@ class Api extends React.Component {
         return this._delete(`cards/${cardId}`);
     }
 
-    setLikeCard(cardId) {
-        return this._put(`cards/${cardId}/likes`);
-    }
-
-    setDeleteLikeCard(cardId) {
-        return this._delete(`cards/${cardId}/likes`);
-    }
-
     setUserAvatar(model) {
         return this._patch('users/me/avatar', model);
+    }
+
+    changeLikeCardStatus(cardId, like) {
+        if (like) {
+           return this._put(`cards/${cardId}/likes`);
+        } else {
+           return this._delete(`cards/${cardId}/likes`)
+        }
     }
 }
 
