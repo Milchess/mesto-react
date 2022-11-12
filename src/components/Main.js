@@ -1,20 +1,15 @@
 import React from "react";
 import api from "../utils/api";
 import Card from "./Card";
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Main(props) {
-    const [userName, setUserName] = React.useState('');
-    const [userDescription, setUserDescription] = React.useState('');
-    const [userAvatar, setUserAvatar] = React.useState('');
     const [cards, setCards] = React.useState([]);
+    const currentUser = React.useContext(CurrentUserContext);
 
     React.useEffect(() => {
-        Promise.all([api.getUserInformation(), api.getInitialCards()])
-            .then(([userData, cardsData]) => {
-                setUserName(userData.name);
-                setUserDescription(userData.about);
-                setUserAvatar(userData.avatar);
-
+        api.getInitialCards()
+            .then((cardsData) => {
                 setCards(cardsData);
             })
             .catch(err => {
@@ -26,13 +21,13 @@ function Main(props) {
         <div className="content">
             <section className="profile">
                 <button className="profile__avatar-button" onClick={props.onEditAvatar}>
-                    <img alt="аватар пользователя" className="profile__avatar" src={userAvatar}/>
+                    <img alt="аватар пользователя" className="profile__avatar" src={currentUser.avatar}/>
                 </button>
                 <div className="profile__info">
-                    <h1 className="profile__user-name">{userName}</h1>
+                    <h1 className="profile__user-name">{currentUser.name}</h1>
                     <button aria-label="Редактировать" className="profile__edit-button" id="edit-button" type="button"
                             onClick={props.onEditProfile}/>
-                    <p className="profile__user-vocation">{userDescription}</p>
+                    <p className="profile__user-vocation">{currentUser.about}</p>
                 </div>
                 <button aria-label="Добавить" className="profile__add-button" id="add-button" type="button" onClick={props.onAddPlace}/>
             </section>
