@@ -20,8 +20,13 @@ function EditAvatarPopup(props) {
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}>
-            <input className="popup__user popup__user_type_avatar" name="avatar" placeholder="Ссылка на картинку" required
-                   type="url" ref={avatarRef}/>
+            <input
+                className="popup__user popup__user_type_avatar"
+                name="avatar"
+                placeholder="Ссылка на картинку"
+                required
+                type="url"
+                ref={avatarRef}/>
             <span className="popup__error avatar-error"></span>
         </PopupWithForm>
     )

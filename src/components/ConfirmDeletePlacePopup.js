@@ -7,6 +7,7 @@ function ConfirmDeletePlacePopup(props) {
 
         props.onConfirmDelete(props.card);
     }
+
     return (
         <PopupWithForm
             name="delete_card"
@@ -14,8 +15,7 @@ function ConfirmDeletePlacePopup(props) {
             buttonText="Да"
             isOpen={props.isOpen}
             onClose={props.onClose}
-            onSubmit={handleSubmit}
-            >
+            onSubmit={handleSubmit}>
         </PopupWithForm>
     )
 }

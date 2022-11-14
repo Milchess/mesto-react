@@ -29,12 +29,24 @@ function Card(props) {
     return (
         <li className="grid-card">
             <article className="grid-card__container">
-                <button aria-label="Удалить" className={cardDeleteButtonClassName} onClick={handleCardDelete} type="button"/>
-                <img alt={props.card.name} className="grid-card__image" src={props.card.link} onClick={handleClick}/>
+                <button
+                    aria-label="Удалить"
+                    className={cardDeleteButtonClassName}
+                    onClick={handleCardDelete}
+                    type="button"/>
+                <img
+                    alt={props.card.name}
+                    className="grid-card__image"
+                    src={props.card.link}
+                    onClick={handleClick}/>
                 <div className="grid-card__item">
                     <h2 className="grid-card__title">{props.card.name}</h2>
                     <div>
-                        <button aria-label="Лайк" className={cardLikeButtonClassName} onClick={handleLikeClick} type="button"/>
+                        <button
+                            aria-label="Лайк"
+                            className={cardLikeButtonClassName}
+                            onClick={handleLikeClick}
+                            type="button"/>
                         <p className="grid-card__like-quantity">{props.card.likes.length}</p>
                     </div>
                 </div>

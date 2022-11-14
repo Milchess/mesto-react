@@ -22,12 +22,20 @@ function AddPlacePopup(props) {
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}>
-            <input className="popup__user popup__user_type_denomination" maxLength="30" minLength="2" name="name"
-                   placeholder="Название" required
-                   type="text" ref={nameRef}/>
+            <input className="popup__user popup__user_type_denomination"
+                   maxLength="30"
+                   minLength="2"
+                   name="name"
+                   placeholder="Название"
+                   required
+                   type="text"
+                   ref={nameRef}/>
             <span className="popup__error name-error"></span>
-            <input className="popup__user popup__user_type_link-image" name="link" placeholder="Ссылка на картинку" required
-                   type="url" ref={linkRef}/>
+            <input className="popup__user popup__user_type_link-image"
+                   name="link" placeholder="Ссылка на картинку"
+                   required
+                   type="url"
+                   ref={linkRef}/>
             <span className="popup__error link-error"></span>
         </PopupWithForm>
     )

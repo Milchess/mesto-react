@@ -38,16 +38,30 @@ function EditProfilePopup(props) {
         isOpen={props.isOpen}
         onClose={props.onClose}
         onSubmit={handleSubmit}>
-        <input className="popup__user popup__user_type_name" maxLength="40" minLength="2" name="name" placeholder="Имя" required
-               type="text" onChange={handleChangeName} value={name || ''}/>
+        <input
+            className="popup__user popup__user_type_name"
+            maxLength="40"
+            minLength="2"
+            name="name"
+            placeholder="Имя"
+            required
+            type="text"
+            onChange={handleChangeName}
+            value={name || ''}/>
         <span className="popup__error name-error"></span>
-        <input className="popup__user popup__user_type_vocation" maxLength="200" minLength="2" name="about"
-               placeholder="Род деятельности"
-               required
-               type="text"
-               onChange={handleChangeDescription} value={description || ''}/>
+        <input
+            className="popup__user popup__user_type_vocation"
+            maxLength="200"
+            minLength="2"
+            name="about"
+            placeholder="Род деятельности"
+            required
+            type="text"
+            onChange={handleChangeDescription}
+            value={description || ''}/>
         <span className="popup__error about-error"></span>
     </PopupWithForm>
-)
+    )
 }
+
 export default EditProfilePopup;
