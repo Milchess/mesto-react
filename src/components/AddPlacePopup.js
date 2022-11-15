@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function AddPlacePopup(props) {
-    const nameRef = React.useRef();
-    const linkRef = React.useRef();
+function AddPlacePopup({onAddPlace, isOpen, onClose}) {
+    const nameRef = useRef();
+    const linkRef = useRef();
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        props.onAddPlace({
+        onAddPlace({
             name: nameRef.current.value,
             link: linkRef.current.value,
         });
@@ -19,8 +19,8 @@ function AddPlacePopup(props) {
             name="card"
             title="Новое место"
             buttonText="Создать"
-            isOpen={props.isOpen}
-            onClose={props.onClose}
+            isOpen={isOpen}
+            onClose={onClose}
             onSubmit={handleSubmit}>
             <input className="popup__user popup__user_type_denomination"
                    maxLength="30"
